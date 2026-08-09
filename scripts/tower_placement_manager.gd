@@ -13,11 +13,10 @@ var preview_tower: Node2D = null
 var valid_placement: bool = false
 var game_manager: GameManager
 
-@onready var placement_grid = $PlacementGrid
+@onready var placement_grid = get_parent().get_node_or_null("PlacementGrid")
 
 func _ready():
 	game_manager = get_parent()
-	Input.mouse_filter = Control.MOUSE_FILTER_STOP
 
 func _input(event: InputEvent):
 	if event is InputEventMouseButton:
@@ -36,9 +35,9 @@ func select_tower(tower_type: String):
 func create_preview_tower():
 	if preview_tower:
 		preview_tower.queue_free()
-	
-	if tower_type in tower_templates:
-		preview_tower = tower_templates[tower_type].instantiate()
+
+	if selected_tower_type in tower_templates:
+		preview_tower = tower_templates[selected_tower_type].instantiate()
 		preview_tower.modulate.a = 0.5
 		add_child(preview_tower)
 
@@ -50,12 +49,13 @@ func update_preview_position():
 
 func check_valid_placement(pos: Vector2) -> bool:
 	# Check if within map bounds
-	var map_rect = Rect2(Vector2.ZERO, get_viewport_rect().size)
+	var visible_rect = get_viewport().get_visible_rect()
+	var map_rect = Rect2(Vector2.ZERO, visible_rect.size)
 	if not map_rect.has_point(pos):
 		return false
-	
+
 	# Check distance from path
-	if placement_grid.is_near_path(pos):
+	if placement_grid and placement_grid.is_near_path(pos):
 		return false
 	
 	# Check if tower already exists there

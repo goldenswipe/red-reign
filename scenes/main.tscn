@@ -17,7 +17,7 @@ _data = {
 script = ExtResource("Script" path="res://scripts/game_manager.gd")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-bus = &"Master"
+bus = "Master"
 
 [node name="Background" type="ColorRect" parent="."]
 anchors_preset = 15

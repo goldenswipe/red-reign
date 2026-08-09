@@ -55,12 +55,16 @@ func update_health_bar():
 func die():
 	if is_dead:
 		return
-	
+
 	is_dead = true
 	var game_manager = get_tree().get_root().find_child("GameManager", true, false)
 	if game_manager:
 		game_manager.add_gold(gold_reward)
-	
+
+	var wave_manager = get_tree().get_root().find_child("WaveManager", true, false)
+	if wave_manager:
+		wave_manager.check_wave_complete()
+
 	# Death animation
 	var tween = create_tween()
 	tween.tween_property(sprite, "modulate", Color.TRANSPARENT, 0.3)
@@ -71,6 +75,11 @@ func reach_end():
 	var game_manager = get_tree().get_root().find_child("GameManager", true, false)
 	if game_manager:
 		game_manager.lose_life()
+
+	var wave_manager = get_tree().get_root().find_child("WaveManager", true, false)
+	if wave_manager:
+		wave_manager.check_wave_complete()
+
 	queue_free()
 
 func is_alive() -> bool:

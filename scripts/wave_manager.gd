@@ -20,8 +20,8 @@ var wave_data: Array = [
 	{"count": 10, "type": "tank", "delay": 0.6},
 	{"count": 20, "type": "basic", "delay": 0.2},
 	{"count": 8, "type": "blimp", "delay": 1.0},
-	{"count": 30, "type": "mixed", "delay": 0.2},
-	{"count": 50, "type": "mixed", "delay": 0.15},
+	{"count": 20, "type": "basic", "delay": 0.2, "mixed": [{"type": "fast", "count": 8, "delay": 0.25}, {"type": "tank", "count": 4, "delay": 0.6}]},
+	{"count": 30, "type": "basic", "delay": 0.15, "mixed": [{"type": "fast", "count": 10, "delay": 0.2}, {"type": "tank", "count": 6, "delay": 0.5}]},
 ]
 
 func _ready():

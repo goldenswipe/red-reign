@@ -16,7 +16,7 @@ signal wave_started(wave_number)
 signal game_over(victory)
 
 func _ready():
-	$AudioStreamPlayer.bus = &"Master"
+	$AudioStreamPlayer.bus = "Master"
 	start_game()
 
 func _process(delta):

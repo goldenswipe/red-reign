@@ -22,4 +22,4 @@ color = Color(1, 1, 0, 1)
 shape = SubResource("CircleShape2D" id="1")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-bus = &"Effects"
+bus = "Effects"
