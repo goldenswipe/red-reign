@@ -1,0 +1,39 @@
+# Godot-specific files
+.godot/
+.godot-project/
+*.import
+export.cfg
+export_presets.cfg
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Build artifacts
+build/
+dist/
+*.exe
+*.app/
+*.dmg
+
+# Temporary files
+*.tmp
+*.bak
+*~
+
+# IDE settings
+project.godot.bak
+.vs/
+*.csproj
+*.sln
+
+# Asset cache
+.import/
+*.tres.bak
+
+# Debug files
+*.pdb
